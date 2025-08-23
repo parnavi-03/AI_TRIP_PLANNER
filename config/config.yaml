@@ -1,0 +1,3 @@
+llm:
+  provider: "groq"
+  model_name: "deepseek-r1-distill-llama-70b"
