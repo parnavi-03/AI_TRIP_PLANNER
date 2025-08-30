@@ -34,7 +34,7 @@ class GraphBuilder():
         
         self.system_prompt = SYSTEM_PROMPT
 
-    def agent_function(self):
+    def agent_function(self,state):
         """Main agent function"""
         user_question = state["messages"]
         input_question = [self.system_prompt] + user_question
@@ -43,7 +43,7 @@ class GraphBuilder():
 
     def build_graph(self):
         graph_builder=StateGraph(MessagesState)
-        graph_builder.add_node("agent", self.agent_function)
+        graph_builder.add_node("agent", lambda s: self.agent_function(s))
         graph_builder.add_node("tools", ToolNode(tools=self.tools))
         graph_builder.add_edge(START,"agent")
         graph_builder.add_conditional_edges("agent",tools_condition)
