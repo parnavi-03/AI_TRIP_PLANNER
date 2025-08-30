@@ -23,3 +23,8 @@ print(shutil.which("uv"))```
 ## use this command from your virtual env
 ```C:\Users\Parnavi Sharma\AI_TRIP_PLANNER\environment\Scripts\activate.bat```
 
+##for running UI
+```streamlit run streamlit_app.py```
+
+##backend
+```uvicorn main:app --reload --port 8000```
